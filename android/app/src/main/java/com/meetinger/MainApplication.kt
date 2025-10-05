@@ -1,4 +1,4 @@
-package com.internship_assignment
+package com.meetinger
 
 import android.app.Application
 import com.facebook.react.PackageList

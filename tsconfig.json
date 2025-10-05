@@ -1,5 +1,15 @@
 {
   "extends": "@react-native/typescript-config",
   "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["**/node_modules", "**/Pods"]
+  "exclude": ["**/node_modules", "**/Pods"],
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"],
+      "create-meeting/*": ["./src/features/create-meeting/*"],
+      "update-meeting/*": ["./src/features/update-meeting/*"],
+      "home-screen/*": ["./src/features/home-screen/*"],
+      "auth/*": ["./src/features/auth/*"],
+      "shared/*": ["./src/shared/*"]
+    }
+  }
 }
