@@ -1,14 +1,11 @@
 import React from 'react';
 import { View, Text, TextInput } from 'react-native';
-import { Controller, Control, FieldErrors } from 'react-hook-form';
+import { Controller, } from 'react-hook-form';
 import { styles } from '@/shared/styles/Meeting.styles';
 import SectionLabel from './SectionLabel';
-import { MeetingFormData } from '@/shared/schema/Meeting';
+import { MeetingTitleInputProps } from '@/shared/types/Props';
 
-interface MeetingTitleInputProps {
-  control: Control<MeetingFormData>;
-  titleError: FieldErrors<MeetingFormData>['title'];
-}
+
 
 const MeetingTitleInput: React.FC<MeetingTitleInputProps> = ({
   control,

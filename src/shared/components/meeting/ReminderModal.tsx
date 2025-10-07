@@ -1,14 +1,10 @@
 import { styles } from '@/shared/styles/Meeting.styles';
+import { ReminderModalProps } from '@/shared/types/Props';
 import React from 'react';
 import { View, Text, TouchableOpacity, Modal } from 'react-native';
 
 type ReminderType = 'none' | '5m' | '10m' | '30m' | '1h';
 
-interface ReminderModalProps {
-  isOpen : boolean;
-  onClose: () => void;
-  onSelect: (reminder: ReminderType) => void;
-}
 
 const reminderOptions: Array<{ value: ReminderType; label: string }> = [
   { value: 'none', label: 'No reminder' },

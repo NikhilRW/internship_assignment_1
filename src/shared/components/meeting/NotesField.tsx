@@ -1,13 +1,11 @@
 import React from 'react';
 import { View, TextInput } from 'react-native';
-import { Control, Controller } from 'react-hook-form';
+import { Controller } from 'react-hook-form';
 import  SectionLabel  from './SectionLabel';
-import { MeetingFormData } from '@/shared/schema/Meeting';
 import { styles } from '@/shared/styles/Meeting.styles';
+import { NotesFieldProps } from '@/shared/types/Props';
 
-type NotesFieldProps = {
-    control: Control<MeetingFormData>;
-};
+
 
 const NotesField = ({ control }: NotesFieldProps) => {
     return (

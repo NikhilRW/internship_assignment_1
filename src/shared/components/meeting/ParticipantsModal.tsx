@@ -1,18 +1,10 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Modal, ScrollView } from 'react-native';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
-import { UseFormSetValue } from 'react-hook-form';
-import { MeetingFormData } from '@/shared/schema/Meeting';
-import { UserType } from '@/shared/types/Meeting';
 import { styles } from '@/shared/styles/Meeting.styles';
+import { ParticipantsModalProps } from '@/shared/types/Props';
 
-type ParticipantsModalProps = {
-  isOpen: boolean;
-  setIsOpen: (open: boolean) => void;
-  setValue: UseFormSetValue<MeetingFormData>;
-  allUsers: UserType[];
-  watchedParticipants: UserType[];
-};
+
 
 const ParticipantsModal = ({
   isOpen,

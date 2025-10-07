@@ -6,7 +6,7 @@ import firestore, {
   serverTimestamp,
   updateDoc,
 } from '@react-native-firebase/firestore';
-import { MeetingData } from '../types/Meeting';
+import { MeetingData } from 'shared/types/Meeting';
 
 // Function to create a new meeting
 export const createMeeting = async (meetingData: MeetingData) => {

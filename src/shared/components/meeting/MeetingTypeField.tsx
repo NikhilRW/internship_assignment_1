@@ -1,13 +1,10 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import { Controller, Control } from 'react-hook-form';
+import { View } from 'react-native';
+import { Controller} from 'react-hook-form';
 import { styles } from '@/shared/styles/Meeting.styles';
 import Toggle from './Toggle';
 import SectionLabel from './SectionLabel';
-
-interface MeetingTypeFieldProps {
-  control: Control<any>;
-}
+import { MeetingTypeFieldProps } from '@/shared/types/Props';
 
 const MeetingTypeField: React.FC<MeetingTypeFieldProps> = ({ control }) => {
   return (

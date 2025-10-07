@@ -1,16 +1,13 @@
 import { View, Text, TouchableOpacity } from 'react-native';
 import React from 'react';
-import { styles } from '../styles/HomeScreen.styles';
+import { styles } from 'home-screen/styles/HomeScreen.styles';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from '@/shared/navigation/types/common';
-import { Meeting } from '@/shared/types/Meeting';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { useAuthStore } from '@/shared/store/useAuthStore';
+import { MeetingItemProps } from '@/shared/types/Props';
 
-interface MeetingItemProps {
-  item: Meeting;
-  onDelete: (id: string) => void;
-}
+
 
 const MeetingItem = ({ item, onDelete }: MeetingItemProps) => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();

@@ -1,18 +1,9 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
-import { Control, FieldErrors } from 'react-hook-form';
-import { UserType } from '@/shared/types/Meeting';
 import SectionLabel from './SectionLabel';
 import { styles } from '@/shared/styles/Meeting.styles';
-import { MeetingFormData } from '@/shared/schema/Meeting';
-SectionLabel;
-type ParticipantsFieldProps = {
-  control: Control<MeetingFormData>;
-  watchedParticipants: UserType[];
-  allUsers: UserType[];
-  errors: FieldErrors<MeetingFormData>;
-  setIsParticipantsOpen: (open: boolean) => void;
-};
+import { ParticipantsFieldProps } from '@/shared/types/Props';
+import { UserType } from '@/shared/types/Meeting';
 
 const ParticipantsField = ({
   watchedParticipants,
@@ -26,12 +17,14 @@ const ParticipantsField = ({
       <View style={[styles.row, styles.gap12]}>
         <View style={[styles.flex1, styles.input]}>
           <Text
-            style={{ color: watchedParticipants.length ? '#111' : '#a3a3a3' ,marginVertical:'auto'}}
+            style={[
+              styles.participantsText,
+              watchedParticipants.length ? styles.participantsTextSelected : styles.participantsTextEmpty
+            ]}
           >
             {watchedParticipants.length
-              ? `${watchedParticipants.length} participant${
-                  watchedParticipants.length > 1 ? 's' : ''
-                }`
+              ? `${watchedParticipants.length} participant${watchedParticipants.length > 1 ? 's' : ''
+              }`
               : 'no participants selected'}
           </Text>
         </View>
@@ -47,7 +40,7 @@ const ParticipantsField = ({
       )}
       {!!watchedParticipants.length && (
         <View
-          style={[styles.row, styles.gap8, { marginTop: 10, flexWrap: 'wrap' }]}
+          style={[styles.row, styles.gap8, styles.participantsContainer]}
         >
           {watchedParticipants.map((p: UserType) => {
             const foundUser = allUsers.find(u => u.email === p.email);

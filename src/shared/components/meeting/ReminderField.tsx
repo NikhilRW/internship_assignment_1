@@ -1,13 +1,9 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { Controller, Control } from 'react-hook-form';
+import { Controller } from 'react-hook-form';
 import { styles } from '@/shared/styles/Meeting.styles';
+import { ReminderFieldProps } from '@/shared/types/Props';
 
-interface ReminderFieldProps {
-  control: Control<any>;
-  setIsReminderOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  error?: { message?: string };
-}
 const ReminderField: React.FC<ReminderFieldProps> = ({
   control,
   setIsReminderOpen,
@@ -28,7 +24,7 @@ const ReminderField: React.FC<ReminderFieldProps> = ({
               <Text
                 style={[
                   styles.inputText,
-                  { color: value === 'none' ? '#a3a3a3' : '#111' }
+                  value === 'none' ? styles.participantsTextEmpty : styles.participantsTextSelected
                 ]}
               >
                 {value === 'none'

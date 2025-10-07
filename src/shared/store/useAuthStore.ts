@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { AuthState } from '../types/Meeting';
+import { AuthState } from 'shared/types/Meeting';
 
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,

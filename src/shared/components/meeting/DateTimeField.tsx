@@ -1,16 +1,8 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { FieldErrors } from 'react-hook-form';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { styles } from '@/shared/styles/Meeting.styles';
-import { MeetingFormData } from '@/shared/schema/Meeting';
-
-interface DateTimeFieldProps {
-  setisDateTimeOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  watchedDate: Date;
-  watchedTime: Date;
-  errors: FieldErrors<MeetingFormData>;
-}
+import { DateTimeFieldProps } from '@/shared/types/Props';
 
 const SectionLabel = ({ children }: { children: React.ReactNode }) => (
   <View style={styles.inputLabelContainer}>

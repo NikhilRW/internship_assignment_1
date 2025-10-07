@@ -38,6 +38,7 @@ interface AuthState {
   clearUser: () => void;
   getUserEmail: () => string | null;
 }
+
 export type MeetingData = {
   title: string;
   dateTime: string;

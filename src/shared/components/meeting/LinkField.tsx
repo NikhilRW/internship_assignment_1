@@ -1,15 +1,10 @@
 import React from 'react';
 import { View, Text, TextInput } from 'react-native';
-import { Control, Controller, FieldErrors } from 'react-hook-form';
+import { Controller } from 'react-hook-form';
 import { styles } from '@/shared/styles/Meeting.styles';
 import SectionLabel from './SectionLabel';
-import { MeetingFormData } from '@/shared/schema/Meeting';
+import { LinkFieldProps } from '@/shared/types/Props';
 styles;
-
-type LinkFieldProps = {
-  control: Control<MeetingFormData>;
-  errors: FieldErrors<MeetingFormData>;
-};
 
 const LinkField = ({ control, errors }: LinkFieldProps) => {
   return (

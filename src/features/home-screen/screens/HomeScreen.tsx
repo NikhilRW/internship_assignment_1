@@ -6,12 +6,12 @@ import {
   Text,
   Alert,
   RefreshControl,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 import MeetingService from 'shared/services/MeetingService';
-import { styles } from '../styles/HomeScreen.styles';
+import { styles } from 'home-screen/styles/HomeScreen.styles';
 import { Meeting } from '@/shared/types/Meeting';
-import MeetingItem from '../components/MeetingItem';
+import MeetingItem from 'home-screen/components/MeetingItem';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { useIsFocused } from '@react-navigation/native';
@@ -31,9 +31,11 @@ const HomeScreen = () => {
     try {
       const fetchedMeetings = await MeetingService.getMeetings();
       // Filter meetings where user is owner or participant
-      const userMeetings = fetchedMeetings.filter(meeting =>
-        meeting.ownerUid === user?.uid ||
-        (meeting.participants && meeting.participants.includes(user?.uid || ''))
+      const userMeetings = fetchedMeetings.filter(
+        meeting =>
+          meeting.ownerUid === user?.uid ||
+          (meeting.participants &&
+            meeting.participants.includes(user?.uid || '')),
       );
       setMeetings(userMeetings);
       setError(null);
@@ -51,38 +53,41 @@ const HomeScreen = () => {
     fetchMeetings();
   }, [fetchMeetings]);
 
-  const handleDeleteMeeting = useCallback((meetingId: string, title: string) => {
-    const meeting = meetings.find(m => m.id === meetingId);
-    if (!meeting || meeting.ownerUid !== user?.uid) {
-      return;
-    }
+  const handleDeleteMeeting = useCallback(
+    (meetingId: string, title: string) => {
+      const meeting = meetings.find(m => m.id === meetingId);
+      if (!meeting || meeting.ownerUid !== user?.uid) {
+        return;
+      }
 
-    Alert.alert(
-      'Delete Meeting',
-      `Are you sure you want to delete "${title}"?`,
-      [
-        {
-          text: 'Cancel',
-          style: 'cancel',
-        },
-        {
-          text: 'Delete',
-          style: 'destructive',
-          onPress: async () => {
-            try {
-              await MeetingService.deleteMeeting(meetingId);
-              setMeetings(prevMeetings =>
-                prevMeetings.filter(meeting => meeting.id !== meetingId)
-              );
-            } catch (err) {
-              Alert.alert('Error', 'Failed to delete meeting');
-              console.error(err);
-            }
+      Alert.alert(
+        'Delete Meeting',
+        `Are you sure you want to delete "${title}"?`,
+        [
+          {
+            text: 'Cancel',
+            style: 'cancel',
           },
-        },
-      ],
-    );
-  }, [meetings, user]);
+          {
+            text: 'Delete',
+            style: 'destructive',
+            onPress: async () => {
+              try {
+                await MeetingService.deleteMeeting(meetingId);
+                setMeetings(prevMeetings =>
+                  prevMeetings.filter(meet => meet.id !== meetingId),
+                );
+              } catch (err) {
+                Alert.alert('Error', 'Failed to delete meeting');
+                console.error(err);
+              }
+            },
+          },
+        ],
+      );
+    },
+    [meetings, user],
+  );
 
   useEffect(() => {
     if (isFocused) {
@@ -105,7 +110,7 @@ const HomeScreen = () => {
           <Text style={styles.noMeetingsText}>
             {user
               ? "No meetings found. You'll see meetings here when you create one or are invited to participate."
-              : "Please sign in to see your meetings."}
+              : 'Please sign in to see your meetings.'}
           </Text>
         </View>
       ) : (

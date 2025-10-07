@@ -1,15 +1,12 @@
 import { styles } from "@/shared/styles/Meeting.styles";
 import { MeetingType } from "@/shared/types/Meeting";
 import { Text, TouchableOpacity, View } from "react-native";
-
+import { ToggleProps } from "@/shared/types/Props";
 
 const Toggle = ({
     value,
     onChange,
-}: {
-    value: MeetingType;
-    onChange: (value: MeetingType) => void;
-}) => {
+}: ToggleProps) => {
     const isOnline = value === 'online';
     return (
         <View style={[styles.row, styles.gap12]}>
@@ -20,19 +17,10 @@ const Toggle = ({
                     activeOpacity={0.8}
                     style={[
                         styles.toggleButton,
-                        {
-                            borderColor:
-                                isOnline === (option === 'online') ? '#7c3aed' : '#e5e5ea',
-                        },
-                        {
-                            backgroundColor:
-                                isOnline === (option === 'online')
-                                    ? 'rgba(124,58,237,0.08)'
-                                    : '#fff',
-                        },
+                        isOnline === (option === 'online') ? styles.toggleButtonActive : styles.toggleButtonInactive
                     ]}
                 >
-                    <Text style={{ color: option === value ? '#7c3aed' : '#111' }}>
+                    <Text style={option === value ? styles.toggleTextActive : styles.toggleTextInactive}>
                         {option === 'online' ? 'Online' : 'Offline'}
                     </Text>
                 </TouchableOpacity>

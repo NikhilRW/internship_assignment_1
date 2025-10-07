@@ -1,5 +1,5 @@
 import { Platform, StyleSheet } from 'react-native';
-import { lightTheme } from '../theme/Theme';
+import { lightTheme } from 'shared/theme/Theme';
 
 export const styles = StyleSheet.create({
   modalBackdrop: {
@@ -258,5 +258,74 @@ export const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: '600',
     fontSize: 15,
+  },
+  datePickerHeader: {
+    padding: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e5e5ea',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  datePickerWeekday: {
+    color: 'rgb(41 41 41)',
+  },
+  datePickerSeparator: {
+    width: '100%',
+    backgroundColor: '#e5e5ea',
+    borderRadius: 0,
+    padding: 0,
+    height: 1,
+  },
+  datePickerFooter: {
+    padding: 16,
+    borderTopWidth: 1,
+    borderTopColor: '#e5e5ea',
+    justifyContent: 'center',
+  },
+  datePickerDoneButton: {
+    backgroundColor: '#7c3aed',
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 24,
+  },
+  datePickerDoneButtonText: {
+    color: '#fff',
+    fontWeight: '600',
+  },
+  dateTimePickerContainer: {
+    paddingHorizontal: 12,
+    paddingVertical: 15,
+    minHeight: 320,
+  },
+  timePickerContainer: {
+    height: 200,
+    justifyContent: 'flex-start',
+  },
+  participantsText: {
+    marginVertical: 'auto',
+  },
+  participantsTextSelected: {
+    color: '#111',
+  },
+  participantsTextEmpty: {
+    color: '#a3a3a3',
+  },
+  participantsContainer: {
+    marginTop: 10,
+    flexWrap: 'wrap',
+  },
+  toggleButtonActive: {
+    borderColor: '#7c3aed',
+    backgroundColor: 'rgba(124,58,237,0.08)',
+  },
+  toggleButtonInactive: {
+    borderColor: '#e5e5ea',
+    backgroundColor: '#fff',
+  },
+  toggleTextActive: {
+    color: '#7c3aed',
+  },
+  toggleTextInactive: {
+    color: '#111',
   },
 });

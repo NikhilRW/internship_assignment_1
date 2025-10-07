@@ -2,7 +2,7 @@ import {Text, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { RootStackParamList } from '@/shared/navigation/types/common';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { styles } from '../styles/HomeScreen.styles';
+import { styles } from 'home-screen/styles/HomeScreen.styles';
 
 const CreateMeetingButton = () => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
