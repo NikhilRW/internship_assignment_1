@@ -1,29 +1,13 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { useForm } from 'react-hook-form';
-import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { AuthStackParamList } from 'shared/navigation/routes/AuthStack';
 import { styles } from '../styles/SignUp.styles';
 import UserService from '../services/UserService';
-
-const schema = z
-  .object({
-    name: z.string().min(2, 'Enter your full name'),
-    email: z.string().email('Enter a valid email'),
-    password: z.string().min(6, 'Minimum 6 characters'),
-    confirmPassword: z.string().min(6, 'Minimum 6 characters'),
-  })
-  .refine(data => data.password === data.confirmPassword, {
-    message: 'Passwords do not match',
-    path: ['confirmPassword'],
-  });
-
-type FormValues = z.infer<typeof schema>;
-
-const inputStyle = undefined as never;
+import { AuthStackParamList } from '@/shared/navigation/types/common';
+import { FormValues, schema } from '@/shared/schema/Auth';
 
 const SignUp = () => {
   const navigation =
@@ -61,7 +45,9 @@ const SignUp = () => {
           onChangeText={t => setValue('name', t, { shouldValidate: true })}
           style={styles.input}
         />
-        {!!errors.name && <Text style={styles.errorText}>{errors.name.message}</Text>}
+        {!!errors.name && (
+          <Text style={styles.errorText}>{errors.name.message}</Text>
+        )}
       </View>
 
       <View style={styles.fieldContainer}>
@@ -75,7 +61,9 @@ const SignUp = () => {
           keyboardType="email-address"
           style={styles.input}
         />
-        {!!errors.email && <Text style={styles.errorText}>{errors.email.message}</Text>}
+        {!!errors.email && (
+          <Text style={styles.errorText}>{errors.email.message}</Text>
+        )}
       </View>
 
       <View style={styles.fieldContainer}>
@@ -88,7 +76,9 @@ const SignUp = () => {
           secureTextEntry
           style={styles.input}
         />
-        {!!errors.password && <Text style={styles.errorText}>{errors.password.message}</Text>}
+        {!!errors.password && (
+          <Text style={styles.errorText}>{errors.password.message}</Text>
+        )}
       </View>
 
       <View style={styles.fieldContainer}>
@@ -103,10 +93,16 @@ const SignUp = () => {
           secureTextEntry
           style={styles.input}
         />
-        {!!errors.confirmPassword && <Text style={styles.errorText}>{errors.confirmPassword.message}</Text>}
+        {!!errors.confirmPassword && (
+          <Text style={styles.errorText}>{errors.confirmPassword.message}</Text>
+        )}
       </View>
 
-      <TouchableOpacity disabled={isSubmitting} onPress={handleSubmit(onSubmit)} style={styles.submitButton}>
+      <TouchableOpacity
+        disabled={isSubmitting}
+        onPress={handleSubmit(onSubmit)}
+        style={styles.submitButton}
+      >
         <Text style={styles.submitText}>Create Account</Text>
       </TouchableOpacity>
 

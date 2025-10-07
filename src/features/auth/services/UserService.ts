@@ -1,4 +1,4 @@
-import { db } from '../../../shared/services/firestore';
+import { getFirestore } from "@react-native-firebase/firestore";
 
 export type UserPayload = {
   uid: string;
@@ -8,7 +8,7 @@ export type UserPayload = {
 
 export default class UserService {
   static async createUser(user: UserPayload) {
-    await db().collection('users').doc(user.uid).set({
+    await getFirestore().collection('users').doc(user.uid).set({
       name: user.name,
       email: user.email,
       createdAt: new Date().toISOString(),
@@ -16,7 +16,7 @@ export default class UserService {
     });
   }
   static async getUsers() {
-    const snapshot = await db().collection('users').get();
-    return snapshot.docs.map(doc => ({ uid: doc.id, ...doc.data() }));
+    const snapshot = await getFirestore().collection('users').get();
+    return snapshot.docs.map(doc => ({ uid: doc.id, ...doc.data() })) as UserPayload[];
   }
 }

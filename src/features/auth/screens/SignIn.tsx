@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { AuthStackParamList } from 'shared/navigation/routes/AuthStack';
 import { styles } from 'auth/styles/SignIn.styles';
 import AuthService from 'auth/services/AuthService';
+import { AuthStackParamList } from '@/shared/navigation/types/common';
 
 const SignIn = () => {
   const navigation =
@@ -33,7 +33,7 @@ const SignIn = () => {
           width={30}
           height={30}
           resizeMode="contain"
-          style={{ width: 30, height: 30 }}
+          style={styles.googleLogo}
         />
         <Text style={styles.googleText}>Continue with Google</Text>
       </TouchableOpacity>

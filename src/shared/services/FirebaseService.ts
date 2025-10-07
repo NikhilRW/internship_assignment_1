@@ -7,8 +7,6 @@ import firestore, {
   updateDoc,
 } from '@react-native-firebase/firestore';
 
-// Initialize Firestore (if not already initialized by @react-native-firebase/app)
-const db = getFirestore();
 
 export type MeetingData = {
   title: string;

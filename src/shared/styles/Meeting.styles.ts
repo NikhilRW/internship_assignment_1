@@ -1,6 +1,100 @@
 import { Platform, StyleSheet } from 'react-native';
+import { lightTheme } from '../theme/Theme';
 
 export const styles = StyleSheet.create({
+  modalBackdrop: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalCard: {
+    width: '80%',
+    backgroundColor: lightTheme.colors.background,
+    borderRadius: 8,
+    padding: 16,
+  },
+  selectedParticipantOption: {
+    backgroundColor: '#e0d7fe',
+    borderColor: '#7c3aed',
+    borderWidth: 1,
+    padding: 8,
+  },
+  selectedParticipantOptionText: {
+    color: '#7c3aed',
+    fontWeight: '600',
+  },
+  noUsersText: {
+    textAlign: 'center',
+    color: lightTheme.colors.text,
+  },
+  participantsScrollView: {
+    marginBottom: 15,
+    marginTop: 15,
+  },
+  modalHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  modalTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: lightTheme.colors.text,
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  input: {
+    flex: 1,
+    minHeight: 40,
+    borderWidth: 1,
+    borderColor: lightTheme.colors.border,
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    color: lightTheme.colors.text,
+    backgroundColor: lightTheme.colors.inputBackground,
+  },
+  inputError: {
+    borderColor: '#ff0000',
+  },
+  inputText: {
+    marginVertical: 'auto',
+  },
+  addButton: {
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    backgroundColor: '#7c3aed',
+    borderRadius: 6,
+  },
+  participantItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: lightTheme.colors.border,
+  },
+  participantEmail: {
+    fontSize: 16,
+    color: lightTheme.colors.text,
+    flex: 1,
+    marginRight: 8,
+  },
+  listItem: {
+    paddingVertical: 12,
+    paddingHorizontal: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: lightTheme.colors.border,
+  },
+  listItemLabel: {
+    fontSize: 16,
+    color: lightTheme.colors.text,
+  },
   contentContainer: {
     padding: 16,
     backgroundColor: '#f6f6f6',
@@ -11,7 +105,6 @@ export const styles = StyleSheet.create({
   errorText: {
     color: '#f00',
     fontSize: 12,
-    marginBottom: 8,
   },
   label: {
     fontSize: 14,
@@ -39,15 +132,6 @@ export const styles = StyleSheet.create({
   },
   flex1: {
     flex: 1,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#e5e5ea',
-    paddingHorizontal: 12,
-    paddingVertical: Platform.OS === 'ios' ? 12 : 8,
-    borderRadius: 10,
-    backgroundColor: '#fff',
-    color: '#111',
   },
   dateTimeField: {
     flexDirection: 'row',
@@ -86,12 +170,6 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: '#fff',
   },
-  addButton: {
-    backgroundColor: '#7c3aed',
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    borderRadius: 10,
-  },
   addButtonText: {
     color: '#fff',
     fontWeight: '600',
@@ -123,32 +201,12 @@ export const styles = StyleSheet.create({
     paddingVertical: 14,
     borderRadius: 12,
     alignItems: 'center',
-    marginTop: 12,
   },
   primaryButtonDisabled: {
     backgroundColor: '#d1c4f6',
   },
   primaryButtonText: {
     color: '#fff',
-    fontWeight: '600',
-  },
-  modalBackdrop: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.45)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 24,
-  },
-  modalCard: {
-    width: '90%',
-    maxWidth: 400,
-    backgroundColor: '#fff',
-    borderRadius: 24,
-    padding: 16,
-    overflow: 'hidden',
-  },
-  modalTitle: {
-    fontSize: 16,
     fontWeight: '600',
   },
   modalSubtle: {
@@ -171,17 +229,6 @@ export const styles = StyleSheet.create({
   },
   filledButtonText: {
     color: '#fff',
-  },
-  listItem: {
-    paddingVertical: 12,
-    paddingHorizontal: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    borderRadius: 8,
-    marginBottom: 4,
   },
 
   participantOption: {
@@ -206,14 +253,10 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 32,
     borderRadius: 24,
     alignSelf: 'center',
-    marginTop: 12,
   },
   modalDoneButtonText: {
     color: '#fff',
     fontWeight: '600',
     fontSize: 15,
-  },
-  listItemLabel: {
-    color: '#111',
   },
 });

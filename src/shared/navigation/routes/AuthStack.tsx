@@ -2,11 +2,7 @@ import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import SignIn from 'auth/screens/SignIn'
 import SignUp from 'auth/screens/SignUp'
-
-export type AuthStackParamList = {
-    SignIn: undefined
-    SignUp: undefined
-}
+import { AuthStackParamList } from 'shared/navigation/types/common'
 
 const Stack = createNativeStackNavigator<AuthStackParamList>()
 

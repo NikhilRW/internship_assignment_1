@@ -28,6 +28,10 @@ export const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: '600',
   },
+  googleLogo: {
+    width: 30,
+    height: 30,
+  },
   dividerText: {
     color: '#6b6b6b',
     marginVertical: 8,
