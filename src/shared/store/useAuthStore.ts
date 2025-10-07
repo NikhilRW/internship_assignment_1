@@ -6,6 +6,7 @@ import { MMKV } from 'react-native-mmkv';
 const sessionStorage: StateStorage = {
   getItem(name) {
     const value = new MMKV().getString(name);
+    
     return value || '';
   },
   removeItem(name) {
