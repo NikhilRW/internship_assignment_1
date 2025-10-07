@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { Text, TouchableOpacity, ScrollView } from 'react-native';
 import MeetingService from 'shared/services/MeetingService';
-import UserService from 'auth/services/UserService';
-import { Meeting, UserType } from '@/shared/types/Meeting';
+import UserService from '@/shared/services/UserService';
+import { Meeting, UserType } from 'shared/types/Meeting';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { RootStackParamList } from '@/shared/navigation/types/common';
-import { useAuthStore } from '@/shared/store/useAuthStore';
+import { RootStackParamList } from 'shared/navigation/types/common';
+import { useAuthStore } from 'shared/store/useAuthStore';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import MeetingTitleInput from '@/shared/components/meeting/MeetingTitleInput';
-import DateTimeField from '@/shared/components/meeting/DateTimeField';
-import MeetingTypeField from '@/shared/components/meeting/MeetingTypeField';
-import ReminderField from '@/shared/components/meeting/ReminderField';
-import ParticipantsField from '@/shared/components/meeting/ParticipantsField';
-import LinkField from '@/shared/components/meeting/LinkField';
-import NotesField from '@/shared/components/meeting/NotesField';
-import DateTimeModal from '@/shared/components/meeting/DateTimeModal';
-import ReminderModal from '@/shared/components/meeting/ReminderModal';
-import ParticipantsModal from '@/shared/components/meeting/ParticipantsModal';
-import { meetingSchema, type MeetingFormData } from '@/shared/schema/Meeting';
-import { styles } from '@/shared/styles/Meeting.styles';
+import MeetingTitleInput from 'shared/components/meeting/MeetingTitleInput';
+import DateTimeField from 'shared/components/meeting/DateTimeField';
+import MeetingTypeField from 'shared/components/meeting/MeetingTypeField';
+import ReminderField from 'shared/components/meeting/ReminderField';
+import ParticipantsField from 'shared/components/meeting/ParticipantsField';
+import LinkField from 'shared/components/meeting/LinkField';
+import NotesField from 'shared/components/meeting/NotesField';
+import DateTimeModal from 'shared/components/meeting/DateTimeModal';
+import ReminderModal from 'shared/components/meeting/ReminderModal';
+import ParticipantsModal from 'shared/components/meeting/ParticipantsModal';
+import { meetingSchema, type MeetingFormData } from 'shared/schema/Meeting';
+import { styles } from 'shared/styles/Meeting.styles';
 
 const CreateMeeting = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -99,7 +99,7 @@ const CreateMeeting = () => {
         watchedTime={watchedTime}
       />
       <MeetingTypeField control={control} />
-      <ReminderField control={control}  error={errors.reminder} setIsReminderOpen={setIsReminderOpen} />
+      <ReminderField control={control} error={errors.reminder} setIsReminderOpen={setIsReminderOpen} />
       <ParticipantsField
         control={control}
         watchedParticipants={watchedParticipants}

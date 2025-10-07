@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Text, TouchableOpacity, ScrollView, Alert, View, ActivityIndicator } from 'react-native';
-import { styles } from '../styles/UpdateMeeting.styles';
+import {
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  Alert,
+  View,
+  ActivityIndicator,
+} from 'react-native';
+import { styles } from 'update-meeting/styles/UpdateMeeting.styles';
 import MeetingService from 'shared/services/MeetingService';
-import UserService from '@/features/auth/services/UserService';
+import UserService from '@/shared/services/UserService';
 import { useNavigation } from '@react-navigation/native';
 import { Meeting, MeetingType, UserType } from '@/shared/types/Meeting';
 import { useForm } from 'react-hook-form';
@@ -21,7 +28,7 @@ import { MeetingFormData, meetingSchema } from '@/shared/schema/Meeting';
 
 const UpdateMeeting = ({ route }: any) => {
   const { meetingId } = route.params;
-  const [meeting, setMeeting] = useState<Meeting | null>(null);
+  const [, setMeeting] = useState<Meeting | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isDateTimeOpen, setIsDateTimeOpen] = useState(false);
@@ -47,7 +54,7 @@ const UpdateMeeting = ({ route }: any) => {
       try {
         const [fetchedMeeting, users] = await Promise.all([
           MeetingService.getMeetingById(meetingId),
-          UserService.getUsers()
+          UserService.getUsers(),
         ]);
 
         setMeeting(fetchedMeeting);
@@ -57,7 +64,7 @@ const UpdateMeeting = ({ route }: any) => {
 
         // Map participant IDs to full user objects
         const selectedParticipants = users.filter(user =>
-          fetchedMeeting.participants?.includes(user.uid)
+          fetchedMeeting.participants?.includes(user.uid),
         );
 
         // Set form values
@@ -69,7 +76,6 @@ const UpdateMeeting = ({ route }: any) => {
         setValue('notes', fetchedMeeting.notes || '');
         setValue('reminder', fetchedMeeting.reminder);
         setValue('participants', selectedParticipants);
-
       } catch (err) {
         setError('Failed to load meeting details.');
         console.error(err);
@@ -143,7 +149,11 @@ const UpdateMeeting = ({ route }: any) => {
 
       <MeetingTypeField control={control} />
 
-      <ReminderField error={errors.reminder} control={control} setIsReminderOpen={setIsReminderOpen} />
+      <ReminderField
+        error={errors.reminder}
+        control={control}
+        setIsReminderOpen={setIsReminderOpen}
+      />
 
       <ParticipantsField
         control={control}

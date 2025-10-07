@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { styles } from '../styles/SignUp.styles';
-import UserService from '../services/UserService';
+import { styles } from 'auth/styles/SignUp.styles';
+import UserService from '@/shared/services/UserService';
 import { AuthStackParamList } from '@/shared/navigation/types/common';
 import { FormValues, schema } from '@/shared/schema/Auth';
 

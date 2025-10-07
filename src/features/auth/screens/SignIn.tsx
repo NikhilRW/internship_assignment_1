@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { styles } from 'auth/styles/SignIn.styles';
-import AuthService from 'auth/services/AuthService';
+import AuthService from '@/features/auth/services/AuthService';
 import { AuthStackParamList } from '@/shared/navigation/types/common';
 
 const SignIn = () => {

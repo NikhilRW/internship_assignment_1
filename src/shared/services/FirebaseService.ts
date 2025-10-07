@@ -6,16 +6,8 @@ import firestore, {
   serverTimestamp,
   updateDoc,
 } from '@react-native-firebase/firestore';
+import { MeetingData } from '../types/Meeting';
 
-
-export type MeetingData = {
-  title: string;
-  dateTime: string;
-  meetingType: 'online' | 'offline';
-  link?: string;
-  reminder: 'none' | '15-minutes' | '30-minutes' | '1-hour' | string;
-  participants: string[];
-}
 // Function to create a new meeting
 export const createMeeting = async (meetingData: MeetingData) => {
   try {

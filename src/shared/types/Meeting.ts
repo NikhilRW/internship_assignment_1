@@ -23,3 +23,27 @@ export type { UserType };
 
 type MeetingType = 'online' | 'offline';
 export type { MeetingType };
+
+interface User {
+  uid: string;
+  email: string | null;
+  displayName: string | null;
+  photoURL: string | null;
+}
+
+interface AuthState {
+  user: User | null;
+  isAuthenticated: boolean;
+  setUser: (firebaseUser: User | null) => void;
+  clearUser: () => void;
+  getUserEmail: () => string | null;
+}
+export type MeetingData = {
+  title: string;
+  dateTime: string;
+  meetingType: 'online' | 'offline';
+  link?: string;
+  reminder: 'none' | '15-minutes' | '30-minutes' | '1-hour' | string;
+  participants: string[];
+}
+export type { AuthState , User};

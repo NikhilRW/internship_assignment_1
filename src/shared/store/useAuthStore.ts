@@ -1,19 +1,5 @@
 import { create } from 'zustand';
-
-interface User {
-  uid: string;
-  email: string | null;
-  displayName: string | null;
-  photoURL: string | null;
-}
-
-interface AuthState {
-  user: User | null;
-  isAuthenticated: boolean;
-  setUser: (firebaseUser: User | null) => void;
-  clearUser: () => void;
-  getUserEmail: () => string | null;
-}
+import { AuthState } from '../types/Meeting';
 
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,

@@ -1,5 +1,5 @@
 import { getFirestore } from '@react-native-firebase/firestore';
-import { Meeting, MeetingPayload } from '../types/Meeting';
+import { Meeting, MeetingPayload } from 'shared/types/Meeting';
 import NotificationService from './NotificationService';
 
 const db = getFirestore;

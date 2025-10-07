@@ -6,7 +6,7 @@ import {
   GoogleAuthProvider,
   updateProfile,
 } from '@react-native-firebase/auth';
-import { useAuthStore } from '../../../shared/store/useAuthStore';
+import { useAuthStore } from 'shared/store/useAuthStore';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { GOOGLE_AUTH_CLIENT_ID } from '@env';
 import {
@@ -23,7 +23,7 @@ class AuthService {
     GoogleSignin.configure({
       webClientId: GOOGLE_AUTH_CLIENT_ID,
     });
-    console.log("GOOGLE_AUTH_CLIENT_ID",GOOGLE_AUTH_CLIENT_ID);
+    console.log('GOOGLE_AUTH_CLIENT_ID', GOOGLE_AUTH_CLIENT_ID);
   }
 
   async signInWithEmailAndPassword(
@@ -40,7 +40,7 @@ class AuthService {
     if (displayName || photoURL) {
       await this.updateUserProfile(displayName, photoURL);
     }
-    
+
     await this.ensureUserInFirestore(userCredential.user);
 
     useAuthStore.getState().setUser(userCredential.user);
